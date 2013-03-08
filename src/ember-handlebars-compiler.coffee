@@ -16,7 +16,7 @@ module.exports = (->
   jQuery = -> jQuery
   jQuery.ready = -> jQuery
   jQuery.inArray = -> jQuery
-  jQuery.jquery = "1.7.1";
+  jQuery.jquery = "1.8.1"
 
   # dummy DOM element
   element =
@@ -59,6 +59,6 @@ module.exports = (->
     # compile the handlebars template inside the vm context
     vm.runInContext 'templatejs = Ember.Handlebars.precompile(template).toString();', context
 
-    context.templatejs;
+    context.templatejs
 
 )()
