@@ -34,8 +34,8 @@ module.exports = (->
     console: console
 
     # jQuery
-    jQuery: jQuery
-    $: jQuery
+    #jQuery: jQuery
+    #$: jQuery
 
     # handlebars template to compile
     template: null
@@ -50,6 +50,7 @@ module.exports = (->
   context = vm.createContext sandbox
 
   # load ember and handlebars in the vm
+  vm.runInContext handlebarsjs, context, 'jquery.js'
   vm.runInContext handlebarsjs, context, 'handlebars.js'
   vm.runInContext emberjs, context, 'ember.js'
 
