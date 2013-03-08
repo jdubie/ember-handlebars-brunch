@@ -6,9 +6,11 @@ module.exports = (->
   vm      = require 'vm'
   sysPath = require 'path'
 
+  jqueryjsPath     = sysPath.join __dirname, '..', 'vendor', 'jquery.js'
   handlebarsjsPath = sysPath.join __dirname, '..', 'vendor', 'handlebars.js'
   emberjsPath      = sysPath.join __dirname, '..', 'vendor', 'ember.js'
 
+  jqueryjs      = fs.readFileSync jqueryjsPath, 'utf8'
   handlebarsjs  = fs.readFileSync handlebarsjsPath, 'utf8'
   emberjs       = fs.readFileSync emberjsPath, 'utf8'
 
@@ -50,7 +52,7 @@ module.exports = (->
   context = vm.createContext sandbox
 
   # load ember and handlebars in the vm
-  vm.runInContext handlebarsjs, context, 'jquery.js'
+  vm.runInContext jqueryjs, context, 'jquery.js'
   vm.runInContext handlebarsjs, context, 'handlebars.js'
   vm.runInContext emberjs, context, 'ember.js'
 
