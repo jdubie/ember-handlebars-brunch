@@ -17,9 +17,7 @@ module.exports = (->
   jQuery.ready = -> jQuery
   jQuery.inArray = -> jQuery
   jQuery.jquery = "1.8.1"
-  jQuery.event = -> jQuery
-  jQuery.fixHooks = -> jQuery
-  #dragstart drag dragenter dragleave dragover drop dragend
+  jQuery.event = fixHooks: {}
 
   # dummy DOM element
   element =
